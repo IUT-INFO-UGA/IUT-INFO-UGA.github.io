@@ -217,3 +217,105 @@ img.activityotherImg:nth-child(3) {
   padding: 2vh;
   text-align: center;
 }
+
+/*---------------------InnovativeServices----------------------*/
+
+main.Services {
+  display: flex;
+  flex-direction: column;
+}
+
+hr {
+  width: 100%;
+}
+/*Sert pour tous les textes */
+p.desc {
+  font-size: 1.4em;
+
+  border: 0.2em solid gray;
+}
+
+.InnovService {
+  background-image: url("Assets/NosServicesInnovants.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 300px;
+  padding: 20vh 17vh;
+}
+
+.InnovServiceText {
+  margin: 0;
+  padding: 2em;
+  border-radius: 5em;
+  width: fit-content;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.inoConatiner {
+  display: flex;
+  width: 90%;
+}
+
+.inoMapTitle {
+  font-size: 4em;
+  padding: 2em;
+  border-radius: 5em;
+}
+
+.inoLeft {
+  flex-grow: 1;
+}
+
+.inoRight {
+  flex-grow: 2;
+}
+
+.inoImage {
+}
+/* img.test {
+  display: block;
+  width: 100%;
+  height: 6%;
+  object-fit: cover;
+}
+
+#CGIMap {
+  display: flex;
+}
+
+#CGIMap > img {
+  width: 50%;
+  justify-content: end;
+}
+
+div.tAGauche {
+  flex-direction: column;
+}
+
+div.tADroite {
+  flex-direction: column;
+  justify-content: left;
+}
+
+#CGITrade {
+  display: flex;
+
+  flex-wrap: wrap-reverse;
+}
+
+#CGITrade > img {
+  width: 50%;
+}
+
+div.tAGauche > p {
+  margin-top: 14%;
+  margin-bottom: 0%;
+  padding: 2em;
+}
+
+div.tADroite > p {
+  margin-top: 14%;
+  margin-bottom: 0%;
+  padding: 2em;
+} */
