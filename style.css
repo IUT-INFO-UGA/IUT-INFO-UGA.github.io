@@ -14,6 +14,51 @@ body {
   src: url("Assets/FiraMono-Regular.otf");
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* -----------------------nav----------------------- */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2vh 5vw;
+}
+.socialnetworksContainer {
+  display: flex;
+  gap: 2vw;
+}
+.socialnetworksImg {
+  width: 2vw;
+  height: 2vw;
+  cursor: pointer;
+}
+
+.navRight {
+  display: flex;
+  gap: 5vw;
+  height: 2vw;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  height: 2vw;
+}
+
+.navLink:hover {
+  border-bottom: black solid 2px;
+}
+
+.socialnetworksImg:hover {
+  opacity: 0.5;
+}
+
+.actualnav {
+  border-bottom: darkblue solid 2px;
+}
 /* -----------------------homeGardent----------------------- */
 .homeGardent {
   display: flex;
