@@ -382,6 +382,7 @@ header{
 .formPage {
   display: flex;
   justify-content: center;
+  background: linear-gradient(to left, #e41937, #5236ab);
 }
 input,
 textarea {
@@ -394,7 +395,6 @@ textarea {
   text-align:center;
 }
 
-background: linear-gradient(to left, #e41937, #5236ab);
 
 
 textarea {
