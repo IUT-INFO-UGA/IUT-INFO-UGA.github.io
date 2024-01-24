@@ -391,11 +391,9 @@ textarea {
   padding-bottom: 20px;
 }
 
-.formPage h1{
-  text-align:center;
+.formPage section h1{
+  margin:25%;
 }
-
-
 
 textarea {
   padding-right: 200px;
