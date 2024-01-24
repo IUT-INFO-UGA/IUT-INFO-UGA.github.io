@@ -383,6 +383,7 @@ header{
   display: flex;
   justify-content: center;
   background: linear-gradient(to left, #e41937, #5236ab);
+  height:80%;
 }
 input,
 textarea {
