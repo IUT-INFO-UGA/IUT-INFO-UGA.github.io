@@ -393,7 +393,9 @@ textarea {
 }
 
 .formPage h1{
-  margin:25%;
+  padding-right: 15%;
+  align-self: center;
+  margin: 0;
 }
 
 textarea {
