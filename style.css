@@ -220,6 +220,47 @@ img.activityotherImg:nth-child(3) {
   text-align: center;
 }
 
+/*----------------------------------------------------*/
+
+/*engagement.html*/
+
+.header-climat{
+  background-image: url("Assets/iceberg.jpg");
+}
+
+.climat, .valeurs {
+  backdrop-filter: blur(20px);
+  width: fit-content;
+  border-radius: 5em;
+  padding:50px;
+}
+
+.main-climat{
+  display: flex;
+  flex-direction: column;
+  margin:0;
+}
+
+.main-climat div section, .main-climat .div2 section{
+  display: flex;
+  flex-direction: column;
+  padding: 10%;
+}
+
+.main-climat div{
+  display: flex;
+  margin: 2em;
+  margin-right: 2em;
+}
+
+.main-climat .div2 {
+  flex-direction: row-reverse;
+}
+
+.main-climat section div{
+  padding: 10em;
+}
+
 /*---------------------footer----------------------*/
 
 footer a {
