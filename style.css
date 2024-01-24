@@ -320,6 +320,68 @@ footer {
   width: 75%;
 }
 
+/*----------------------------------------------------*/
+
+/*valeurs.html*/
+
+header{
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 300px;
+  padding: 20vh 17vh;
+}
+  
+.header-valeurs{
+  background-image: url("Assets/valeurs.jpg");
+}
+
+.main-valeurs{
+  display: flex;
+  flex-direction: column;
+}
+
+.main-valeurs div{
+  display: flex;
+  padding-left: 40%;
+}
+.main-valeurs div article{
+  display: flex;
+  flex-direction: row;
+}
+
+.main-valeurs div:first-child{
+  background-color: black;
+}
+
+.main-valeurs div:nth-child(2){
+  background-color: #5D5955;
+}
+
+.main-valeurs div:nth-child(3){
+  background-color: #ad0104;
+}
+
+.main-valeurs div:nth-child(4){
+  background-color: #39393B;
+}
+
+.main-valeurs div:last-child{
+  background-color: #B49D85;
+}
+
+.main-valeurs div h2, .main-valeurs div p{
+  color:white;
+  border: none;
+}
+
+.main-valeurs div p{
+  display: flex;
+  flex-basis: 40%;
+  padding: 0.8em;
+  margin-top: 10vh;
+}
+
 /*---------------------form----------------------*/
 .formPage {
   display: flex;
