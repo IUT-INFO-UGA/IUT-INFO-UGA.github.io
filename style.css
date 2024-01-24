@@ -385,8 +385,7 @@ header{
   background: linear-gradient(to left, #e41937, #5236ab);
   height:80%;
 }
-input,
-textarea {
+input,textarea {
   display: flex;
   flex-wrap: wrap;
   padding-bottom: 20px;
