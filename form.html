@@ -14,17 +14,17 @@
       <a href="index.html">Accueil</a>
     </div>
     <div class="navLink">
-      <a href="/Engagment.html">Engagements</a>
+      <a href="engagment.html">Engagements</a>
     </div>
     <div class="navLink">
-      <a href="/services.html">Services</a>
+      <a href="services.html">Services</a>
     </div>
     <div class="navLink">
-      <a href="/Value.html">Valeurs</a>
+      <a href="Value.html">Valeurs</a>
     </div>
     <div class="navLink">
       <div class="navLink actualnav">
-        <a href="/legal.html">Legal</a>
+        <a href="legal.html">Legal</a>
       </div>
     </div>
     <div class="socialnetworksContainer">
@@ -39,42 +39,46 @@
       </a>
     </div>
   </nav>
-  <h1>Nous contacter</h1>
 
-  <form method="post" action="traitement.php">
+  <section class="formPage">
 
-    <div>
-      <label for="nom">Nom :</label>
-      <input id="nom" type="text" name="nom" placeholder="votre nom" required>
-    </div>
+    <h1>Nous contacter</h1>
 
-    <div>
-      <label for="Prenom">Prénom :</label>
-      <input id="Prenom" type="text" name="Prenom" placeholder="votre prénom" required>
-    </div>
+    <form method="post" action="traitement.php">
 
+      <div>
+        <label for="nom">Nom :</label>
+        <input id="nom" type="text" name="nom" placeholder="votre nom" required>
+      </div>
 
-    <div>
-      <label for="email">E-mail :</label>
-      <input id="email" type="email" name="email" placeholder="votre adresse mail" required>
-    </div>
+      <div>
+        <label for="Prenom">Prénom :</label>
+        <input id="Prenom" type="text" name="Prenom" placeholder="votre prénom" required>
+      </div>
 
 
-    <div>
-      <label for="bio">Courte bio :</label>
-      <input id="bio" type="text" name="bio" placeholder="une courte bio">
-    </div>
+      <div>
+        <label for="email">E-mail :</label>
+        <input id="email" type="email" name="email" placeholder="votre adresse mail" required>
+      </div>
 
-    <div>
-      <label for="message">Votre message :</label>
-      <textarea name="message" id="message" cols="30" rows="10" placeholder="Votre message"></textarea>
-    </div>
 
-    <div>
-      <input id="envoi" type="submit" value="Envoyez">
-    </div>
+      <div>
+        <label for="bio">Courte bio :</label>
+        <input id="bio" type="text" name="bio" placeholder="une courte bio">
+      </div>
 
-  </form>
+      <div>
+        <label for="message">Votre message :</label>
+        <textarea name="message" id="message" cols="30" rows="10" placeholder="Votre message"></textarea>
+      </div>
+
+      <div>
+        <input id="envoi" type="submit" value="Envoyez">
+      </div>
+
+    </form>
+  </section>
   <footer class="legalFooter">
     <div class="footerLeft">
       <div class="FooterTextContainer">
@@ -90,7 +94,7 @@
 
       </div>
       <div class="FooterTextContainer">
-        <a href="/form.html">Formulaire de contact</a>
+        <a href="form.html">Formulaire de contact</a>
 
       </div>
     </div>
