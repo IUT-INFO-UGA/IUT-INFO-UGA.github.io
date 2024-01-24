@@ -390,6 +390,13 @@ textarea {
   padding-bottom: 20px;
 }
 
+.formPage h1{
+  text-align:center;
+}
+
+background-color: linear-gradient(to left, #e41937, #5236ab);
+
+
 textarea {
   padding-right: 200px;
 }
