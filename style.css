@@ -19,6 +19,10 @@ a {
   color: black;
 }
 
+.centerText {
+  text-align: center;
+}
+
 /* -----------------------nav----------------------- */
 nav {
   display: flex;
@@ -62,22 +66,22 @@ nav {
 /* -----------------------homeGardent----------------------- */
 .homeGardent {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
   background: linear-gradient(to left, #e41937, #5236ab);
-  padding: 2% 20%;
   color: white;
 }
 
 .HomeTitle {
   font-size: 10em;
+  width: 35%;
   text-align: center;
-  margin: auto;
-  margin-right: 10vh;
 }
 
 .homeText {
-  font-size: 5em;
-  margin: auto;
+  font-size: 4em;
+  width: 35%;
 }
 
 /* -----------------------trust----------------------- */
@@ -131,6 +135,7 @@ nav {
 
 .activityother {
   width: 43vw;
+  height: 40vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -160,7 +165,7 @@ img.activityotherImg:nth-child(3) {
 }
 
 .activityTitle {
-  font-size: 5em;
+  font-size: 4em;
   height: 100%;
   display: flex;
   align-items: center;
@@ -171,10 +176,10 @@ img.activityotherImg:nth-child(3) {
   display: flex;
   gap: 1vw;
   font-size: 1.8em;
-  width: 43vw;
 }
 
 .activityText {
+  font-size: 0.8em;
   margin-right: 2vh;
   font-family: "sofia-pro";
 }
@@ -185,10 +190,8 @@ img.activityotherImg:nth-child(3) {
   height: 100%;
   border-bottom-left-radius: 20px;
 }
-
 /* -----------------------whoAreWe----------------------- */
 .whoAreWe {
-  width: 100%;
   background: linear-gradient(to right, #ebebeb, #f5f5f5);
 }
 .whoAre {
@@ -218,104 +221,55 @@ img.activityotherImg:nth-child(3) {
   text-align: center;
 }
 
-/*---------------------InnovativeServices----------------------*/
+/*---------------------footer----------------------*/
 
-main.Services {
+footer a {
+  font-weight: normal;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2vh 5vw;
+}
+
+.footerLeft,
+.footerRight {
   display: flex;
   flex-direction: column;
+  gap: 1vh;
 }
 
-hr {
-  width: 100%;
-}
-/*Sert pour tous les textes */
-p.desc {
-  font-size: 1.4em;
+@media screen and (max-width: 1000px) {
+  /*---------------------activity--------------------- */
+  .activity {
+    display: flex;
+    flex-direction: column;
+  }
+  .activityother,
+  .activityIndustrie,
+  .activityEnergy,
+  .activityShipping {
+    width: 90vw;
+  }
+  .activityother,
+  .activityImg {
+    display: none;
+  }
 
-  border: 0.2em solid gray;
-}
+  .activityText {
+    margin-left: 2vh;
+  }
 
-.InnovService {
-  background-image: url("Assets/NosServicesInnovants.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 300px;
-  padding: 20vh 17vh;
+  /*---------------------whoAreWe--------------------- */
+  .whoAreContainer {
+    flex-direction: column;
+    gap: 5vh;
+  }
 }
-
-.InnovServiceText {
-  margin: 0;
-  padding: 2em;
-  border-radius: 5em;
-  width: fit-content;
-  background-color: rgba(255, 255, 255, 0.5);
-}
-
-.inoConatiner {
-  display: flex;
-  width: 90%;
-}
-
-.inoMapTitle {
-  font-size: 4em;
-  padding: 2em;
-  border-radius: 5em;
-}
-
-.inoLeft {
-  flex-grow: 1;
-}
-
-.inoRight {
-  flex-grow: 2;
-}
-
-.inoImage {
-}
-/* img.test {
-  display: block;
-  width: 100%;
-  height: 6%;
-  object-fit: cover;
-}
-
-#CGIMap {
-  display: flex;
-}
-
-#CGIMap > img {
-  width: 50%;
-  justify-content: end;
-}
-
-div.tAGauche {
-  flex-direction: column;
-}
-
-div.tADroite {
-  flex-direction: column;
-  justify-content: left;
-}
-
-#CGITrade {
-  display: flex;
-
-  flex-wrap: wrap-reverse;
-}
-
-#CGITrade > img {
-  width: 50%;
-}
-
-div.tAGauche > p {
-  margin-top: 14%;
-  margin-bottom: 0%;
-  padding: 2em;
-}
-
-div.tADroite > p {
-  margin-top: 14%;
-  margin-bottom: 0%;
-  padding: 2em;
-} */
