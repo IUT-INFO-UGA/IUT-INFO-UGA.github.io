@@ -394,7 +394,7 @@ textarea {
   text-align:center;
 }
 
-background-color: linear-gradient(to left, #e41937, #5236ab);
+background: linear-gradient(to left, #e41937, #5236ab);
 
 
 textarea {
