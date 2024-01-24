@@ -345,10 +345,6 @@ header{
   display: flex;
   padding-left: 40%;
 }
-.main-valeurs div article{
-  display: flex;
-  flex-direction: row;
-}
 
 .main-valeurs div:first-child{
   background-color: black;
