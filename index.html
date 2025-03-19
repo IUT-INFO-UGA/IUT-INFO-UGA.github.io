@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- https://dribbble.com/shots/21505269-Weather-Dashbard-App -->
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="index.css" rel="stylesheet">
+	<title>Document</title>
+</head>
+
+<body>
+	<section class="search">
+		<form onsubmit="event.preventDefault(); search();">
+			<label for="city">votre ville</label>
+			<input id="city" placeholder="grenoble">
+			<label class="switch">
+				<input type="checkbox">
+				<span class="slider round"></span>
+			</label>
+		</form>
+	</section>
+
+	<section class="map">
+		<iframe id="map" width="600" height="450" style="border:0" loading="lazy" allowfullscreen src="https://www.openstreetmap.org/export/embed.html?bbox=5.6776059,45.1541442,5.7531315,45.2140762&layer=mapnik">
+		</iframe>
+</body>
+
+<script>
+	function search() {
+		const city = document.getElementById('city').value;
+		if (!city) {
+			alert("Veuillez entrer une ville.");
+			return;
+		}
+
+		fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${city}`)
+			.then(response => response.json())
+			.then(data => {
+				if (data.length === 0) {
+					alert("Ville non trouvée.");
+					return;
+				}
+
+				const lat = data[0].lat,
+					lon = data[0].lon;
+				boundingBox = data[0].boundingbox
+				document.getElementById('map').src = `https://www.openstreetmap.org/export/embed.html?bbox=${boundingBox[2]},${boundingBox[0]},${boundingBox[3]},${boundingBox[1]}&layer=mapnik`;
+			});
+	}
+</script>
+
+</html>
