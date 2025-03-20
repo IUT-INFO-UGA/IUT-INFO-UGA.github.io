@@ -137,7 +137,7 @@ main {
 
 	.Overview {
 		grid-row: 2;
-		grid-column: 1 / 4;
+		grid-column: 2 / 4;
 		border-radius: 2vh;
 		height: 60vh;
 		width: 70vw;
@@ -145,5 +145,25 @@ main {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+	}
+
+	.recent {
+		background-color: var(--background);
+		border-radius: 2vh;
+		height: 58vh;
+		width: 28vw;
+		padding: 1vh 1vw;
+
+		.recentItem {
+			display: flex;
+			justify-content: space-between;
+			.star {
+				height: 3em;
+				aspect-ratio: 1;
+				background: white;
+				border: none;
+				clip-path: polygon(50% 0, 79% 90%, 2% 35%, 98% 35%, 21% 90%);
+			}
+		}
 	}
 }
