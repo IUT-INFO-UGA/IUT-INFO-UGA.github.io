@@ -5,7 +5,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="index.css" rel="stylesheet">
+	<link href="./css/index.min.css" rel="stylesheet">
+	<link href="./css/weather-icons.min.css" rel="stylesheet">
 	<title>Document</title>
 </head>
 
@@ -21,9 +22,31 @@
 		</form>
 	</section>
 
-	<section class="map">
+	<main>
+		<section class="summarized">
+			<img class="weather" src="https://raw.githubusercontent.com/erikflowers/weather-icons/bb80982bf1f43f2d57f9dd753e7413bf88beb9ed/svg/wi-day-sunny.svg"></img>
+			<div>
+				<div>Grenoble</div>
+				<div>france</div>
+			</div>
+			<div>
+				<div>20°</div>
+				<div>temperature</div>
+			</div>
+			<div>
+				<div>24%</div>
+				<div>humidité</div>
+			</div>
+			<div>
+				<div>13km/h</div>
+				<div>vitesse du vent</div>
+			</div>
+
+		</section>
 		<iframe id="map" width="600" height="450" style="border:0" loading="lazy" allowfullscreen src="https://www.openstreetmap.org/export/embed.html?bbox=5.6776059,45.1541442,5.7531315,45.2140762&layer=mapnik">
 		</iframe>
+		<section class="Overview">ici une jolie courbe</section>
+	</main>
 </body>
 
 <script>
@@ -41,7 +64,7 @@
 					alert("Ville non trouvée.");
 					return;
 				}
-
+				console.log(data[0]);
 				const lat = data[0].lat,
 					lon = data[0].lon;
 				boundingBox = data[0].boundingbox
