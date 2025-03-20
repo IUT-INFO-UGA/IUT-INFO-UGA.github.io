@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="./css/index.min.css" rel="stylesheet">
 	<link href="./css/weather-icons.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<title>Document</title>
 </head>
 
@@ -24,28 +25,83 @@
 
 	<main>
 		<section class="summarized">
-			<img class="weather" src="https://raw.githubusercontent.com/erikflowers/weather-icons/bb80982bf1f43f2d57f9dd753e7413bf88beb9ed/svg/wi-day-sunny.svg"></img>
-			<div>
-				<div>Grenoble</div>
-				<div>france</div>
+			<div class="information">
+				<img class="weather" src="https://raw.githubusercontent.com/erikflowers/weather-icons/bb80982bf1f43f2d57f9dd753e7413bf88beb9ed/svg/wi-day-sunny.svg" alt="sunny"></img>
+				<div>
+					<div>Grenoble</div>
+					<div>france</div>
+				</div>
+				<div>
+					<div>20°</div>
+					<div>temperature</div>
+				</div>
+				<div>
+					<div>24%</div>
+					<div>humidité</div>
+				</div>
+				<div>
+					<div>13km/h</div>
+					<div>vitesse du vent</div>
+				</div>
 			</div>
-			<div>
-				<div>20°</div>
-				<div>temperature</div>
+			<div class="pastWeather">
+				<div>
+					<div>8h</div>
+					<img src="https://raw.githubusercontent.com/erikflowers/weather-icons/bb80982bf1f43f2d57f9dd753e7413bf88beb9ed/svg/wi-day-sunny.svg" alt="sunny">
+					<div>18°</div>
+				</div>
+				<div>
+					<div>9h</div>
+					<img src="https://raw.githubusercontent.com/erikflowers/weather-icons/bb80982bf1f43f2d57f9dd753e7413bf88beb9ed/svg/wi-day-sunny.svg" alt="sunny">
+					<div>19°</div>
+				</div>
+				<div>
+					<div>10h</div>
+					<img src="https://raw.githubusercontent.com/erikflowers/weather-icons/bb80982bf1f43f2d57f9dd753e7413bf88beb9ed/svg/wi-day-sunny.svg" alt="sunny">
+					<div>20°</div>
+				</div>
+				<div>
+					<div>11h</div>
+					<img src="https://raw.githubusercontent.com/erikflowers/weather-icons/bb80982bf1f43f2d57f9dd753e7413bf88beb9ed/svg/wi-day-sunny.svg" alt="sunny">
+					<div>21°</div>
+				</div>
+				<div>
+					<div>12h</div>
+					<img src="https://raw.githubusercontent.com/erikflowers/weather-icons/bb80982bf1f43f2d57f9dd753e7413bf88beb9ed/svg/wi-day-sunny.svg" alt="sunny">
+					<div>22°</div>
+				</div>
+				<div>
+					<div>13h</div>
+					<img src="https://raw.githubusercontent.com/erikflowers/weather-icons/bb80982bf1f43f2d57f9dd753e7413bf88beb9ed/svg/wi-day-sunny.svg" alt="sunny">
+					<div>23°</div>
+				</div>
+				<div>
+					<div>14h</div>
+					<img src="https://raw.githubusercontent.com/erikflowers/weather-icons/bb80982bf1f43f2d57f9dd753e7413bf88beb9ed/svg/wi-day-sunny.svg" alt="sunny">
+					<div>24°</div>
+				</div>
+				<div>
+					<div>15h</div>
+					<img src="https://raw.githubusercontent.com/erikflowers/weather-icons/bb80982bf1f43f2d57f9dd753e7413bf88beb9ed/svg/wi-day-sunny.svg" alt="sunny">
+					<div>24°</div>
+				</div>
+				<div>
+					<div>16h</div>
+					<img src="https://raw.githubusercontent.com/erikflowers/weather-icons/bb80982bf1f43f2d57f9dd753e7413bf88beb9ed/svg/wi-day-sunny.svg" alt="sunny">
+					<div>24°</div>
+				</div>
+				<div>
+					<div>17h</div>
+					<img src="https://raw.githubusercontent.com/erikflowers/weather-icons/bb80982bf1f43f2d57f9dd753e7413bf88beb9ed/svg/wi-day-sunny.svg" alt="sunny">
+					<div>24°</div>
+				</div>
 			</div>
-			<div>
-				<div>24%</div>
-				<div>humidité</div>
-			</div>
-			<div>
-				<div>13km/h</div>
-				<div>vitesse du vent</div>
-			</div>
-
 		</section>
 		<iframe id="map" width="600" height="450" style="border:0" loading="lazy" allowfullscreen src="https://www.openstreetmap.org/export/embed.html?bbox=5.6776059,45.1541442,5.7531315,45.2140762&layer=mapnik">
 		</iframe>
-		<section class="Overview">ici une jolie courbe</section>
+		<section class="Overview">
+			<canvas id="myChart"></canvas>
+		</section>
 	</main>
 </body>
 
@@ -71,6 +127,29 @@
 				document.getElementById('map').src = `https://www.openstreetmap.org/export/embed.html?bbox=${boundingBox[2]},${boundingBox[0]},${boundingBox[3]},${boundingBox[1]}&layer=mapnik`;
 			});
 	}
+</script>
+
+<script>
+	const ctx = document.getElementById('myChart');
+
+	new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+			datasets: [{
+				label: '# of Votes',
+				data: [12, 19, 3, 5, 2, 3],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				y: {
+					beginAtZero: true
+				}
+			}
+		}
+	});
 </script>
 
 </html>
