@@ -21,7 +21,6 @@ function search() {
 				'map'
 			).src = `https://www.openstreetmap.org/export/embed.html?bbox=${boundingBox[2]},${boundingBox[0]},${boundingBox[3]},${boundingBox[1]}&layer=mapnik`;
 
-			console.log(data);
 			document.querySelector('.information > div:nth-child(2) > div:nth-child(1)').textContent =
 				data[0].display_name.split(',')[0];
 
@@ -31,7 +30,7 @@ function search() {
 
 function calculateWeather(lon, lat) {
 	fetch(
-		`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,weather_code&current=temperature_2m,wind_speed_10m,relative_humidity_2m&timezone=Europe%2FLondon&forecast_days=2`
+		`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,weather_code,relative_humidity_2m&current=temperature_2m,relative_humidity_2m,wind_speed_10m&timezone=Europe%2FLondon&forecast_days=2`
 	)
 		.then(response => response.json())
 		.then(data => {
@@ -41,6 +40,7 @@ function calculateWeather(lon, lat) {
 			}
 			futureWeather(data);
 			currentWeather(data);
+			humidityChart(data);
 		});
 }
 
@@ -96,27 +96,28 @@ function currentWeather(data) {
 		data.current.wind_speed_10m + 'km/h';
 }
 
-function chartFakeData() {
+function humidityChart(data) {
 	const ctx = document.getElementById('myChart');
 
 	new Chart(ctx, {
 		type: 'bar',
 		data: {
-			labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+			labels: data.hourly.time.map(timestamp => {
+				const date = new Date(timestamp);
+				return `${date.getFullYear().toString().slice(-2)}-${String(date.getMonth() + 1).padStart(
+					2,
+					'0'
+				)}-${String(date.getDate()).padStart(2, '0')} ${String(date.getHours()).padStart(2, '0')}:${String(
+					date.getMinutes()
+				).padStart(2, '0')}`;
+			}),
 			datasets: [
 				{
-					label: '# of Votes',
-					data: [12, 19, 3, 5, 2, 3],
+					label: '% humidité',
+					data: data.hourly.relative_humidity_2m,
 					borderWidth: 1
 				}
 			]
-		},
-		options: {
-			scales: {
-				y: {
-					beginAtZero: true
-				}
-			}
 		}
 	});
 }
@@ -143,4 +144,3 @@ function weatherCodeToIcon(wmoCode) {
 			return 'wi-day-sunny-overcast.svg';
 	}
 }
-chartFakeData();
