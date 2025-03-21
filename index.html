@@ -6,7 +6,6 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="./css/index.min.css" rel="stylesheet">
-	<link href="./css/weather-icons.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<title>Document</title>
 </head>
@@ -44,7 +43,7 @@
 					<div>vitesse du vent</div>
 				</div>
 			</div>
-			<div class="pastWeather">
+			<div class="futreWeather">
 				<div>
 					<div>8h</div>
 					<img src="https://raw.githubusercontent.com/erikflowers/weather-icons/bb80982bf1f43f2d57f9dd753e7413bf88beb9ed/svg/wi-day-sunny.svg" alt="sunny">
@@ -110,53 +109,7 @@
 			<canvas id="myChart"></canvas>
 		</section>
 	</main>
+	<script src="./index.js"></script>
 </body>
-
-<script>
-	function search() {
-		const city = document.getElementById('city').value;
-		if (!city) {
-			alert("Veuillez entrer une ville.");
-			return;
-		}
-
-		fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${city}`)
-			.then(response => response.json())
-			.then(data => {
-				if (data.length === 0) {
-					alert("Ville non trouvée.");
-					return;
-				}
-				console.log(data[0]);
-				const lat = data[0].lat,
-					lon = data[0].lon;
-				boundingBox = data[0].boundingbox
-				document.getElementById('map').src = `https://www.openstreetmap.org/export/embed.html?bbox=${boundingBox[2]},${boundingBox[0]},${boundingBox[3]},${boundingBox[1]}&layer=mapnik`;
-			});
-	}
-</script>
-
-<script>
-	const ctx = document.getElementById('myChart');
-
-	new Chart(ctx, {
-		type: 'bar',
-		data: {
-			labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-			datasets: [{
-				label: '# of Votes',
-				data: [12, 19, 3, 5, 2, 3],
-				borderWidth: 1
-			}]
-		},
-		options: {
-			scales: {
-				y: {
-					beginAtZero: true
-				}
-			}
-		}
-	});
-</script>
 
 </html>
