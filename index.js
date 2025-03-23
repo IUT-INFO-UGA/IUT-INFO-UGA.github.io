@@ -2,6 +2,7 @@ const weatherIcon =
 	'https://raw.githubusercontent.com/erikflowers/weather-icons/bb80982bf1f43f2d57f9dd753e7413bf88beb9ed/svg/';
 
 function search() {
+	return;
 	console.log('search');
 	const city = document.getElementById('city').value;
 	if (!city) {
@@ -25,9 +26,9 @@ function search() {
 				data[0].display_name.split(',')[0];
 
 			// Ajouter la ville dans l'historique
-			addToSearchHistory(data[0].display_name.split(',')[0]);
+			// addToSearchHistory(data[0].display_name.split(',')[0]);
 
-			calculateWeather(data[0].lon, data[0].lat);
+			// calculateWeather(data[0].lon, data[0].lat);
 		});
 }
 
@@ -59,42 +60,13 @@ function calculateWeather(lon, lat) {
 				alert('Ville non trouvée.');
 				return;
 			}
-			futureWeather(data);
 			currentWeather(data);
 			humidityChart(data);
 		});
 }
 
-function futureWeather(data) {
-	const offsetTime = new Date().getHours();
-	if (
-		!data.hourly ||
-		!data.hourly.time ||
-		!data.hourly.temperature_2m ||
-		!data.hourly.weather_code ||
-		/* dataset have enough data */
-		data.hourly.time.length < offsetTime + 10 ||
-		data.hourly.temperature_2m.length < offsetTime + 10 ||
-		data.hourly.weather_code.length < offsetTime + 10
-	) {
-		alert('données manquante');
-		return;
-	}
-
-	//change for data for futre weather
-	for (let i = 1; i <= 10; i++) {
-		const urlImg = weatherIcon + weatherCodeToIcon(data.hourly.weather_code[i + offsetTime]);
-		document.querySelector(`.futreWeather > div:nth-child(${i}) > div:nth-child(1)`).textContent =
-			new Date(data.hourly.time[i + offsetTime]).getHours() + ' h';
-		const img = document.querySelector(`.futreWeather > div:nth-child(${i}) > img`);
-		img.setAttribute('alt', 'weather code ' + data.hourly.weather_code[i + offsetTime]);
-		img.setAttribute('src', urlImg);
-		document.querySelector(`.futreWeather > div:nth-child(${i}) > div:nth-child(3)`).textContent =
-			data.hourly.temperature_2m[i + offsetTime] + '°';
-	}
-}
-
 function currentWeather(data) {
+	return;
 	if (
 		!data.current ||
 		typeof data.current.relative_humidity_2m != 'number' ||

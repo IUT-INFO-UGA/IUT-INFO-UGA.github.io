@@ -11,14 +11,16 @@
 
 <body>
 	<script type='module'>
-		import SearchHistoryController from './js/Controller/controller-searchHistory.mjs';
-		import SearchHistoryModel from './js/Models/models-searchHistory.mjs';
-		import SearchHistoryView from './js/View/view-searchHistory.mjs';
-		const searchHistory = new SearchHistoryController(new SearchHistoryModel(), new SearchHistoryView())
+		import RequestControler from './js/Controller/controler-request.mjs'
+		const controllerRequest = new RequestControler()
 
+		document.querySelector('form').addEventListener('submit', (event) => {
+			event.preventDefault();
+			controllerRequest.search();
+		});
 	</script>
 	<section class="search">
-		<form onsubmit="event.preventDefault(); search();">
+		<form>
 			<label for="city">votre ville</label>
 			<input id="city" placeholder="grenoble">
 			<label class="switch">
