@@ -13,7 +13,7 @@ export default class SearchHistoryView {
 		document.getElementById('city').value = val;
 	}
 
-	createListItem(NameOfCity, favorite, ClickStarFun) {
+	createListItem(NameOfCity, favorite) {
 		// Create element
 		const listItem = document.createElement('li');
 		listItem.classList.add('recentItem');
@@ -27,7 +27,6 @@ export default class SearchHistoryView {
 		starButton.classList.add('star');
 		if (favorite) {
 			starButton.classList.add('favorite'); // Add favorite class for favorited items
-			ClickStarFun();
 		}
 
 		// Add event listener to toggle favorite class

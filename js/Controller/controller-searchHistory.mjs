@@ -13,21 +13,16 @@ export default class SearchHistoryController {
 		// Handle clicks on star buttons
 		this.view.recentItems.querySelectorAll('.star').forEach(starButton => {
 			starButton.addEventListener('click', () => {
-				const history = this.model
-					.getSearchHistory()
-					.find(h => h.name === starButton.previousElementSibling.textContent);
-				if (history) {
-					history.favorite = !history.favorite;
-					this.model.updateLocalStorage(history);
-				}
+				this.model.togle(starButton.previousElementSibling.textContent);
 			});
 		});
 	}
 
 	addItemToList(item, favorite) {
-		this.view.createListItem(item, favorite, () => {
-			this.model.updateLocalStorage(history);
-		});
+		if (!this.model.getIfExist(item)) {
+			this.model.addToHistory(item, favorite);
+			this.view.createListItem(item, favorite);
+		}
 	}
 
 	createListItem(history) {
