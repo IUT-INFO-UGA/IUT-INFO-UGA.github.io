@@ -24,8 +24,29 @@ function search() {
 			document.querySelector('.information > div:nth-child(2) > div:nth-child(1)').textContent =
 				data[0].display_name.split(',')[0];
 
+			// Ajouter la ville dans l'historique
+			addToSearchHistory(data[0].display_name.split(',')[0]);
+
 			calculateWeather(data[0].lon, data[0].lat);
 		});
+}
+
+function addToSearchHistory(cityName) {
+	// Récupérer l'historique actuel
+	const searchHistory = JSON.parse(window.localStorage.getItem('history')) || [];
+
+	// Vérifier si la ville existe déjà dans l'historique
+	const cityExists = searchHistory.some(history => history.name === cityName);
+	if (!cityExists) {
+		// Ajouter la nouvelle ville
+		searchHistory.push({ name: cityName, favorite: false });
+
+		// Mettre à jour le localStorage
+		window.localStorage.setItem('history', JSON.stringify(searchHistory));
+
+		// Reconstruire la liste des éléments récents
+		constructSearchHistory();
+	}
 }
 
 function calculateWeather(lon, lat) {

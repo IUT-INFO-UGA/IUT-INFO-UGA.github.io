@@ -6,11 +6,17 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="./css/index.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<title>Document</title>
 </head>
 
 <body>
+	<script type='module'>
+		import SearchHistoryController from './js/Controller/controller-searchHistory.mjs';
+		import SearchHistoryModel from './js/Models/models-searchHistory.mjs';
+		import SearchHistoryView from './js/View/view-searchHistory.mjs';
+		const searchHistory = new SearchHistoryController(new SearchHistoryModel(), new SearchHistoryView())
+
+	</script>
 	<section class="search">
 		<form onsubmit="event.preventDefault(); search();">
 			<label for="city">votre ville</label>
@@ -99,11 +105,14 @@
 		<iframe id="map" width="600" height="450" style="border:0" loading="lazy" allowfullscreen src="https://www.openstreetmap.org/export/embed.html?bbox=5.6776059,45.1541442,5.7531315,45.2140762&layer=mapnik">
 		</iframe>
 		<section class="recent">
-			<div class="recentItem">
-				<div>Grenoble</div>
-				<!-- add button for accesibility -->
-				<input type="button" class="star" />
-			</div>
+			<ul>
+				<li class="recentItem">
+					<div>Grenoble</div>
+					<!-- add button for accesibility -->
+					<input type="button" class="star" />
+				</li>
+			</ul>
+
 		</section>
 		<section class=" Overview">
 			<canvas id="myChart"></canvas>
