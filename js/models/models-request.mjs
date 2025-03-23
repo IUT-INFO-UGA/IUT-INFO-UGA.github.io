@@ -44,7 +44,12 @@ export default class RequestModels {
 					/* dataset have enough data */
 					data.hourly.time.length < offsetTime + 10 ||
 					data.hourly.temperature_2m.length < offsetTime + 10 ||
-					data.hourly.weather_code.length < offsetTime + 10
+					data.hourly.weather_code.length < offsetTime + 10 ||
+					/* current data*/
+					!data.current ||
+					typeof data.current.relative_humidity_2m != 'number' ||
+					typeof data.current.temperature_2m != 'number' ||
+					typeof data.current.wind_speed_10m != 'number'
 				) {
 					alert('données manquante');
 					return;

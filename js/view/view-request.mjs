@@ -1,6 +1,7 @@
 export default class RequestView {
 	constructor() {
 		this.city = document.getElementById('city');
+		this.chart = document.getElementById('myChart');
 	}
 
 	setSearchElement(boundingBox, cityname) {
@@ -26,6 +27,23 @@ export default class RequestView {
 		document.querySelector('.information > div:nth-child(5) > div:nth-child(1)').textContent = windSpeed;
 		const img = document.querySelector('.information > img');
 		img.setAttribute('alt', imgAlt);
-		img.setAttribute('src', urlImg);
+		img.setAttribute('src', imgUrl);
+	}
+
+	setChart(label, dataSet) {
+		console.log(this.chart);
+		new Chart(this.chart, {
+			type: 'bar',
+			data: {
+				labels: label,
+				datasets: [
+					{
+						label: '% humidité',
+						data: dataSet,
+						borderWidth: 1
+					}
+				]
+			}
+		});
 	}
 }
