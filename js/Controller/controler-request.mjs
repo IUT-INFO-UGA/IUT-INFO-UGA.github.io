@@ -43,7 +43,7 @@ export default class RequestControler {
 	addFutureWeatherToView(data) {
 		const offsetTime = new Date().getHours();
 		for (let i = 1; i <= 10; i++) {
-			const urlImg = this.weatherIcon + weatherCodeToIcon(data.hourly.weather_code[i + offsetTime]);
+			const urlImg = this.weatherIcon + this.weatherCodeToIcon(data.hourly.weather_code[i + offsetTime]);
 			this.view.setFutreWeatherElement(
 				i,
 				new Date(data.hourly.time[i + offsetTime]).getHours() + ' h',
@@ -55,7 +55,7 @@ export default class RequestControler {
 	}
 
 	addCurrentWeatherToView(data) {
-		const urlImg = this.weatherIcon + weatherCodeToIcon(data.hourly.weather_code);
+		const urlImg = this.weatherIcon + this.weatherCodeToIcon(data.hourly.weather_code);
 
 		this.view.setCurrentWeatherElement(
 			data.current.temperature_2m + '°',
@@ -80,5 +80,28 @@ export default class RequestControler {
 			}),
 			data.hourly.relative_humidity_2m
 		);
+	}
+
+	weatherCodeToIcon(wmoCode) {
+		// WMO code to MfD Weather Codes
+		switch (wmoCode) {
+			case 0:
+				return 'wi-day-sunny.svg';
+			case 1:
+				return 'wi-day-sunny-overcast.svg';
+			case 2:
+				return 'wi-day-sunny.svg';
+			case 3:
+				return 'wi-day-sunny-overcast.svg';
+			case 4:
+				return 'wi-day-light-wind.svg';
+			case 5:
+				return 'wi-day-haze.svg';
+			case 17:
+				return 'Blizzard';
+			default:
+				//the overcast sky is the weather when we don't know in the end
+				return 'wi-day-sunny-overcast.svg';
+		}
 	}
 }
