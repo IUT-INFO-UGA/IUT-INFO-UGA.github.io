@@ -19,4 +19,13 @@ export default class RequestView {
 		document.querySelector(`.futreWeather > div:nth-child(${elNumber}) > div:nth-child(3)`).textContent =
 			temperature;
 	}
+
+	setCurrentWeatherElement(temperature, humidity, windSpeed, imgAlt, imgUrl) {
+		document.querySelector('.information > div:nth-child(3) > div:nth-child(1)').textContent = temperature;
+		document.querySelector('.information > div:nth-child(4) > div:nth-child(1)').textContent = humidity;
+		document.querySelector('.information > div:nth-child(5) > div:nth-child(1)').textContent = windSpeed;
+		const img = document.querySelector('.information > img');
+		img.setAttribute('alt', imgAlt);
+		img.setAttribute('src', urlImg);
+	}
 }

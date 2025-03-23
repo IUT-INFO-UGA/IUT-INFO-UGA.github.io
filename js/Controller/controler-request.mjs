@@ -25,7 +25,9 @@ export default class RequestControler {
 				this.searchHistory.addItemToList(name, false);
 
 				this.model.calculateWeather(lon, lat).then(weatherData => {
-					if (weatherData) this.addFutureWeatherToView(weatherData);
+					if (!weatherData) return;
+					this.addFutureWeatherToView(weatherData);
+					this.addCurrentWeatherToView(weatherData);
 				});
 			})
 			.catch(error => {
@@ -46,5 +48,26 @@ export default class RequestControler {
 				data.hourly.temperature_2m[i + offsetTime] + '°'
 			);
 		}
+	}
+
+	addCurrentWeatherToView(data) {
+		if (
+			!data.current ||
+			typeof data.current.relative_humidity_2m != 'number' ||
+			typeof data.current.temperature_2m != 'number' ||
+			typeof data.current.wind_speed_10m != 'number'
+		) {
+			alert('données manquante');
+			return;
+		}
+		const urlImg = weatherIcon + weatherCodeToIcon(data.hourly.weather_code);
+
+		this.view.setCurrentWeatherElement(
+			data.current.temperature_2m + '°',
+			data.current.relative_humidity_2m + '%',
+			data.current.wind_speed_10m + 'km/h',
+			'weather code ' + data.current.weather_code,
+			urlImg
+		);
 	}
 }
