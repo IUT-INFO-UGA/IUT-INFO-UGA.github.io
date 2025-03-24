@@ -12,6 +12,17 @@ export default class RequestControler {
 		this.view = new RequestView();
 		this.model = new RequestModels();
 		this.searchHistory = new SearchHistoryController(new SearchHistoryModel(), new SearchHistoryView());
+		this.view.unit.addEventListener('click', event => {
+			if (event.target.checked) {
+				this.model.setUnit('fahrenheit');
+				//and refresh data warning if you change the city you beak alls
+				this.search();
+			} else {
+				this.model.setUnit('celsius');
+				//and refresh data warning if you change the city you beak alls
+				this.search();
+			}
+		});
 	}
 
 	search() {

@@ -2,6 +2,7 @@ export default class RequestView {
 	constructor() {
 		this.city = document.getElementById('city');
 		this.chart = document.getElementById('myChart');
+		this.unit = document.querySelector('.switch');
 	}
 
 	setSearchElement(boundingBox, cityname) {

@@ -1,5 +1,10 @@
 export default class RequestModels {
-	constructor() {}
+	constructor() {
+		this.unit = 'celsius';
+	}
+	setUnit(unit) {
+		this.unit = unit;
+	}
 	search(noTrustCityName) {
 		return fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${noTrustCityName}`)
 			.then(response => response.json())
@@ -27,7 +32,7 @@ export default class RequestModels {
 
 	calculateWeather(lon, lat) {
 		return fetch(
-			`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,weather_code,relative_humidity_2m&current=temperature_2m,relative_humidity_2m,wind_speed_10m&timezone=Europe%2FLondon&forecast_days=2`
+			`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,weather_code,relative_humidity_2m&current=temperature_2m,relative_humidity_2m,wind_speed_10m&timezone=Europe%2FLondon&forecast_days=2&temperature_unit=${this.unit}`
 		)
 			.then(response => response.json())
 			.then(data => {

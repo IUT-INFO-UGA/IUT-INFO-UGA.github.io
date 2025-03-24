@@ -2,15 +2,19 @@ export default class SearchHistoryView {
 	constructor(controller) {
 		this.controller = controller;
 		this.recentItems = document.querySelector('.recent ul');
+		this.city = document.getElementById('city');
 		//handle click on city name
 		this.recentItems.addEventListener('click', e => {
-			this.setCitySearch(e.target.textContent);
-			search();
+			if (e.target.tagName === 'DIV') {
+				// Ensure the click is on a city name
+				this.setCitySearch(e.target.textContent);
+				this.city.form.requestSubmit(); // Validate the form programmatically
+			}
 		});
 	}
 
 	setCitySearch(val) {
-		document.getElementById('city').value = val;
+		this.city.value = val;
 	}
 
 	createListItem(NameOfCity, favorite) {
