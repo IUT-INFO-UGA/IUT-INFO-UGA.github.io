@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="./css/index.min.css" rel="stylesheet">
-	<title>Document</title>
+	<title>outils meteo</title>
 </head>
 
 <body>
@@ -22,8 +22,13 @@
 	</script>
 	<section class="search">
 		<form>
-			<label for="city">votre ville</label>
-			<input id="city" placeholder="grenoble">
+			<div>
+				<label for="city">votre ville</label>
+				<input id="city" placeholder="grenoble">
+				<button>recherche</button>
+				<div id="searchStatus" />
+			</div>
+
 			<label class="switch">
 				<input type="checkbox" id="unitToggle">
 				<span class="slider round"></span>

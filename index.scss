@@ -6,6 +6,21 @@ body {
 	--background: lightgrey;
 }
 
+form {
+	display: flex;
+	justify-content: space-between;
+	width: 80vw;
+	padding: 0 10vw;
+	div {
+		display: flex;
+		gap: 1vw;
+		align-items: center;
+	}
+	label {
+		color: black;
+	}
+}
+
 // <======================>> togler °c to °f <<======================>
 /* The switch - the box around the slider */
 .switch {
