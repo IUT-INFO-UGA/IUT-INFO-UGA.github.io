@@ -12,6 +12,12 @@ export default class SearchHistoryModel {
 		this.updateLocalStorage();
 	}
 
+	/**
+	 * Toggles the favorite status of a search history item by its name.
+	 *
+	 * @param {string} name - The name of the search history item to toggle.
+	 * @returns {void}
+	 */
 	togle(name) {
 		const element = this.searchHistory.find(h => h.name === name);
 		if (element) {

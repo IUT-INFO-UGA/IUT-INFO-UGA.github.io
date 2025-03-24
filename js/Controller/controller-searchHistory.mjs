@@ -18,6 +18,13 @@ export default class SearchHistoryController {
 		});
 	}
 
+	/**
+	 * Adds an item to the history list if it does not already exist.
+	 * Updates both the model and the view with the new item.
+	 *
+	 * @param {string} item - The item to be added to the history list.
+	 * @param {boolean} favorite - Indicates whether the item is marked as a favorite.
+	 */
 	addItemToList(item, favorite) {
 		if (!this.model.getIfExist(item)) {
 			this.model.addToHistory(item, favorite);
@@ -25,6 +32,13 @@ export default class SearchHistoryController {
 		}
 	}
 
+	/**
+	 * Creates a list item in the view and sets up a click handler to toggle the favorite status.
+	 *
+	 * @param {Object} history - The history object to be represented as a list item.
+	 * @param {string} history.name - The name of the history item.
+	 * @param {boolean} history.favorite - Indicates whether the history item is marked as favorite.
+	 */
 	createListItem(history) {
 		this.view.createListItem(history.name, history.favorite, () => {
 			history.favorite = !history.favorite;

@@ -17,6 +17,13 @@ export default class SearchHistoryView {
 		this.city.value = val;
 	}
 
+	/**
+	 * Creates a list item element representing a city with an optional favorite status.
+	 * The list item includes the city name and a star button to toggle the favorite status.
+	 *
+	 * @param {string} NameOfCity - The name of the city to display in the list item.
+	 * @param {boolean} favorite - Indicates whether the city is marked as a favorite.
+	 */
 	createListItem(NameOfCity, favorite) {
 		// Create element
 		const listItem = document.createElement('li');

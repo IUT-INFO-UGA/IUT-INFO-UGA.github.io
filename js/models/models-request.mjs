@@ -1,17 +1,36 @@
+/**
+ * Class representing a model for handling requests related to weather and location data.
+ */
 export default class RequestModels {
+	/**
+	 * Creates an instance of RequestModels.
+	 * Initializes the unit of temperature to 'celsius'.
+	 */
 	constructor() {
 		this.unit = 'celsius';
 	}
+
+	/**
+	 * Sets the unit of temperature.
+	 * @param {string} unit - The unit of temperature (e.g., 'celsius', 'fahrenheit').
+	 */
 	setUnit(unit) {
 		this.unit = unit;
 	}
+
+	/**
+	 * Searches for a city using the OpenStreetMap Nominatim API.
+	 * @param {string} noTrustCityName - The name of the city to search for.
+	 * @returns {Promise<Array|null>} A promise that resolves to an array containing the bounding box,
+	 *                                city name, longitude, and latitude, or null if the city is not found.
+	 */
 	search(noTrustCityName) {
 		return fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${noTrustCityName}`)
 			.then(response => response.json())
 			.then(data => {
 				if (data.length === 0) {
 					alert('Ville non trouvée.');
-					return;
+					return null;
 				}
 				if (
 					data &&
@@ -26,10 +45,17 @@ export default class RequestModels {
 					return [boundingBox, name, data[0].lon, data[0].lat];
 				} else {
 					alert('Données non disponibles.');
+					return null;
 				}
 			});
 	}
 
+	/**
+	 * Calculates the weather data for a given longitude and latitude using the Open-Meteo API.
+	 * @param {string} lon - The longitude of the location.
+	 * @param {string} lat - The latitude of the location.
+	 * @returns {Promise<Object|null>} A promise that resolves to the weather data object or null if data is missing.
+	 */
 	calculateWeather(lon, lat) {
 		return fetch(
 			`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,weather_code,relative_humidity_2m&current=temperature_2m,relative_humidity_2m,wind_speed_10m&timezone=Europe%2FLondon&forecast_days=2&temperature_unit=${this.unit}`
@@ -39,7 +65,7 @@ export default class RequestModels {
 				const offsetTime = new Date().getHours();
 				if (data.length === 0) {
 					alert('Ville non trouvée.');
-					return;
+					return null;
 				}
 				if (
 					!data.hourly ||
@@ -57,7 +83,7 @@ export default class RequestModels {
 					typeof data.current.wind_speed_10m != 'number'
 				) {
 					alert('données manquante');
-					return;
+					return null;
 				}
 				return data;
 			});

@@ -25,6 +25,13 @@ export default class RequestControler {
 		});
 	}
 
+	/**
+	 * Initiates a search for weather information based on the city entered by the user.
+	 * Validates the input, displays a loading indicator, and updates the view with the search results.
+	 * Handles errors during the search process and displays appropriate messages.
+	 *
+	 * @throws {Error} If an error occurs during the search or weather data retrieval.
+	 */
 	search() {
 		const city = this.view.city.value;
 		if (!city) {
@@ -53,6 +60,11 @@ export default class RequestControler {
 			});
 	}
 
+	/**
+	 * Updates the view with future weather data for the next 10 hours.
+	 *
+	 * @param {Object} data - The weather data object.
+	 */
 	addFutureWeatherToView(data) {
 		const offsetTime = new Date().getHours();
 		for (let i = 1; i <= 10; i++) {
@@ -67,6 +79,11 @@ export default class RequestControler {
 		}
 	}
 
+	/**
+	 * Updates the view with the current weather data.
+	 *
+	 * @param {Object} data - The weather data object.
+	 */
 	addCurrentWeatherToView(data) {
 		const urlImg = this.weatherIcon + this.weatherCodeToIcon(data.hourly.weather_code);
 
@@ -79,6 +96,14 @@ export default class RequestControler {
 		);
 	}
 
+	/**
+	 * Updates the humidity chart with the provided data.
+	 *
+	 * @param {Object} data - The data object containing hourly weather information.
+	 * @param {Object} data.hourly - The hourly weather data.
+	 * @param {string[]} data.hourly.time - An array of timestamps in ISO 8601 format.
+	 * @param {number[]} data.hourly.relative_humidity_2m - An array of relative humidity values (in percentage) corresponding to the timestamps.
+	 */
 	humidityChart(data) {
 		this.view.setChart(
 			data.hourly.time.map(timestamp => {
@@ -95,6 +120,13 @@ export default class RequestControler {
 		);
 	}
 
+	/**
+	 * Converts a WMO (World Meteorological Organization) weather code to a corresponding weather icon filename.
+	 *
+	 * @param {number} wmoCode - The WMO weather code representing specific weather conditions.
+	 * @returns {string} The filename of the weather icon corresponding to the given WMO code.
+	 *                   If the WMO code is not recognized, defaults to 'wi-day-sunny-overcast.svg'.
+	 */
 	weatherCodeToIcon(wmoCode) {
 		// WMO code to MfD Weather Codes
 		switch (wmoCode) {
