@@ -31,7 +31,7 @@ export default class RequestControler {
 			alert('Veuillez entrer une ville.');
 			return;
 		}
-
+		this.view.searchStatus.classList.add('loader');
 		this.model
 			.search(city)
 			.then(([boundingBox, name, lon, lat]) => {
@@ -43,11 +43,13 @@ export default class RequestControler {
 					this.addFutureWeatherToView(weatherData);
 					this.addCurrentWeatherToView(weatherData);
 					this.humidityChart(weatherData);
+					this.view.searchStatus.classList.remove('loader');
 				});
 			})
 			.catch(error => {
 				console.error('Erreur lors de la recherche:', error);
 				alert('Une erreur est survenue lors de la recherche.');
+				this.view.searchStatus.classList.remove('loader');
 			});
 	}
 
