@@ -42,6 +42,7 @@ export default class RequestControler {
 		this.model
 			.search(city)
 			.then(([boundingBox, name, lon, lat]) => {
+				this.view.searchStatus.classList.remove('loader');
 				this.view.setSearchElement(boundingBox, name);
 				this.searchHistory.addItemToList(name, false);
 
@@ -50,7 +51,6 @@ export default class RequestControler {
 					this.addFutureWeatherToView(weatherData);
 					this.addCurrentWeatherToView(weatherData);
 					this.humidityChart(weatherData);
-					this.view.searchStatus.classList.remove('loader');
 				});
 			})
 			.catch(error => {
@@ -142,10 +142,197 @@ export default class RequestControler {
 				return 'wi-day-light-wind.svg';
 			case 5:
 				return 'wi-day-haze.svg';
+			case 6:
+				return 'wi-dust.svg';
+			case 7:
+				return 'wi-dust.svg';
+			case 8:
+				return 'wi-dust.svg';
+			case 9:
+				return 'wi-sandstorm.svg';
+			case 10:
+				return 'wi-windy.svg';
+			case 11:
+				return 'wi-windy.svg';
+			case 12:
+				return 'wi-windy.svg';
+			case 13:
+				return 'wi-lighting.svg';
+			case 14:
+				return 'wi-hail.svg';
+			case 15:
+				return 'wi-hail.svg';
+			case 16:
+				return 'wi-hail.svg';
 			case 17:
-				return 'Blizzard';
+				return 'wi-day-lightnin.gsvg';
+			case 18:
+				return 'wi-strong-wind.svg';
+			case 19:
+				return 'wi-day-cloudy-gusts.svg';
+			case 20:
+				return 'wi-hail.svg';
+			case 21:
+				return 'wi-rain.svg';
+			case 22:
+				return 'wi-snow.svg';
+			case 23:
+				return 'wi-rain-mix';
+			case 24:
+				return 'wi-rain-mix.svg';
+			case 25:
+				return 'wi-rain.svg';
+			case 26:
+				return 'wi-snow.svg';
+			case 27:
+				return 'wi-hail.svg';
+			case 28:
+				return 'wi-day-fog.svg';
+			case 29:
+				return 'wi-thunderstorm.svg';
+			case 30:
+				return 'wi-dust.svg';
+			case 31:
+				return 'wi-dust.svg';
+			case 32:
+				return 'wi-dust.svg';
+			case 33:
+				return 'wi-dust.svg';
+			case 34:
+				return 'wi-dust.svg';
+			case 35:
+				return 'wi-dust.svg';
+			case 36:
+				return 'wi-snow.svg';
+			case 37:
+				return 'wi-snow-wind';
+			case 38:
+				return 'wi-snow-wind';
+			case 39:
+				return 'wi-snow-wind';
+			case 40:
+				return 'wi-dust.svg';
+			case 41:
+				return 'wi-dust.svg';
+			case 42:
+				return 'wi-dust.svg';
+			case 43:
+				return 'wi-dust.svg';
+			case 44:
+				return 'wi-dust.svg';
+			case 45:
+				return 'wi-dust.svg';
+			case 46:
+				return 'wi-dust.svg';
+			case 47:
+				return 'wi-dust.svg';
+			case 48:
+				return 'wi-dust.svg';
+			case 49:
+				return 'wi-dust.svg';
+			case 50:
+				return 'wi-hail.svg';
+			case 51:
+				return 'wi-hail.svg';
+			case 52:
+				return 'wi-hail.svg';
+			case 53:
+				return 'wi-hail.svg';
+			case 54:
+				return 'wi-hail.svg';
+			case 55:
+				return 'wi-hail.svg';
+			case 56:
+				return 'wi-hail.svg';
+			case 57:
+				return 'wi-hail.svg';
+			case 58:
+				return 'wi-hail.svg';
+			case 59:
+				return 'wi-hail.svg';
+			case 60:
+				return 'wi-rain.svg';
+			case 61:
+				return 'wi-rain.svg';
+			case 62:
+				return 'wi-rain.svg';
+			case 63:
+				return 'wi-rain.svg';
+			case 64:
+				return 'wi-rain.svg';
+			case 65:
+				return 'wi-rain.svg';
+			case 66:
+				return 'wi-rain.svg';
+			case 67:
+				return 'wi-rain.svg';
+			case 68:
+				return 'wi-rain.svg';
+			case 69:
+				return 'wi-rain.svg';
+			case 70:
+				return 'wi-snow.svg';
+			case 71:
+				return 'wi-snow.svg';
+			case 72:
+				return 'wi-snow.svg';
+			case 73:
+				return 'wi-snow.svg';
+			case 74:
+				return 'wi-snow.svg';
+			case 75:
+				return 'wi-snow.svg';
+			case 76:
+				return 'wi-snow.svg';
+			case 77:
+				return 'wi-snow.svg';
+			case 78:
+				return 'wi-snow.svg';
+			case 79:
+				return 'wi-snow.svg';
+			case 80:
+				return 'wi-rain.svg';
+			case 81:
+				return 'wi-rain.svg';
+			case 82:
+				return 'wi-rain.svg';
+			case 83:
+				return 'wi-rain.svg';
+			case 84:
+				return 'wi-rain.svg';
+			case 85:
+				return 'wi-snow.svg';
+			case 86:
+				return 'wi-snow.svg';
+			case 87:
+				return 'wi-snow.svg';
+			case 88:
+				return 'wi-snow.svg';
+			case 89:
+				return 'wi-hail.svg';
+			case 90:
+				return 'wi-hail.svg';
+			case 91:
+				return 'wi-rain.svg';
+			case 92:
+				return 'wi-rain.svg';
+			case 93:
+				return 'wi-hail.svg';
+			case 94:
+				return 'wi-hail.svg';
+			case 95:
+				return 'wi-thunderstorm.svg';
+			case 96:
+				return 'wi-thunderstorm.svg';
+			case 97:
+				return 'wi-thunderstorm.svg';
+			case 98:
+				return 'wi-thunderstorm.svg';
+			case 99:
+				return 'wi-thunderstorm.svg';
+			case 100:
+				return 'wi-thundersrtorm.svg';
 			default:
-				//the overcast sky is the weather when we don't know in the end
 				return 'wi-day-sunny-overcast.svg';
 		}
 	}
